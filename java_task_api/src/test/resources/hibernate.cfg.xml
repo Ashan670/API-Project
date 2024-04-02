@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC
+        "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+	<configuration>
+		<!-- Your existing configuration -->
+
+		<!-- Suppress Hibernate version INFO message -->
+		<logger name="org.hibernate.Version" level="WARN" />
+	</configuration>
+	<!-- Database connection settings -->
+	<session-factory>
+		<property name="hibernate.connection.driver_class">com.mysql.cj.jdbc.Driver</property>
+		<property name="hibernate.connection.url">jdbc:mysql://localhost:3306/rnd</property>
+		<property name="hibernate.connection.username">root</property>
+		<property name="hibernate.connection.password">Test123@</property>
+
+		<!-- JDBC connection pool settings -->
+		<property name="hibernate.connection.pool_size">5</property>
+
+		<!-- SQL dialect for MySQL -->
+		<property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
+
+		<!-- Disable the second-level cache -->
+		<property name="hibernate.cache.provider_class">org.hibernate.cache.NoCacheProvider</property>
+
+		<!-- Echo all executed SQL to stdout -->
+		<property name="hibernate.show_sql">true</property>
+
+		<!-- Drop and re-create the database schema on startup -->
+		<property name="hibernate.hbm2ddl.auto">update</property>
+
+		<mapping package="com.payable.task3.models" />
+		<mapping class="com.payable.task3.models.t_activity" />
+		<!-- Mapping files -->
+		<!-- Add your entity class mappings here -->
+		<!--<mapping class="com.example.entity.YourEntityClass"/> -->
+	</session-factory>
+
+</hibernate-configuration>
